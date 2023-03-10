@@ -34,10 +34,6 @@ print('Passo 2: Busca pelo video na barra de pesquisa do youtube ')
 try:
     action = ActionChains(driver)
     search_box = driver.find_element(By.XPATH, "//input[@id='search']")
-    #Simular o mouse passando no menu Departamentos
-    #menu = WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="search"]')))
-    #action.move_to_element(menu).perform()
-
     action.move_to_element(search_box).click()
 
     # Digita o que voce colocar no campo de busca
@@ -65,7 +61,7 @@ print('Passo 3: Capturar comentários do vídeo')
 try:
     wait = WebDriverWait(driver,10)
     with open('comentários_do_video.csv','w') as arquivo:
-        for item in range(3): #by increasing the highest range you can get more content
+        for item in range(3):
             wait.until(EC.visibility_of_element_located((By.TAG_NAME, "body"))).send_keys(Keys.END)
             time.sleep(3)
 
