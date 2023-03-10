@@ -8,7 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 
 
-#codigo para automatizar escutar Não chora china véia dos Garotos de Ouro usando selenium 
+#codigo para automatizar scraping de comentário do youtube usando selenium 
 
 options = webdriver.ChromeOptions()
 #options.add_argument("--window-size=1980,1020")
@@ -41,7 +41,7 @@ try:
     action.move_to_element(search_box).click()
 
     # Digita o que voce colocar no campo de busca
-    action.send_keys("Do a barrel roll")
+    action.send_keys("Não chora china veia")
 
     # Pressiona Enter para realizar a busca
     action.send_keys(Keys.ENTER)
@@ -70,7 +70,7 @@ try:
             time.sleep(3)
 
         for comment in wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#comment #content-text"))):
-            arquivo.write(comment.text+'\n')
+            arquivo.write('Comentário: ' + comment.text+'\n\n')
 
     driver.save_screenshot('tela03.png')
 
