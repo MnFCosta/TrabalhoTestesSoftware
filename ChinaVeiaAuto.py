@@ -26,6 +26,7 @@ except:
     print('Erro ao acessar o site da kabum')
     quit()
 
+"""
 print('Passo 2: Acessa o menu Departamentos/Computadores/Notebooks/Dell')
 try:
     action = ActionChains(driver)
@@ -84,6 +85,8 @@ except:
     driver.quit()
     print('Erro ao salvar lista de produtos')
     quit()
+"""
+    
 
 print('Teste realizado com sucesso')
 driver.quit()
