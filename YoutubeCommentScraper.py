@@ -11,9 +11,8 @@ import time
 #codigo para automatizar scraping de comentário do youtube usando selenium 
 
 options = webdriver.ChromeOptions()
-#options.add_argument("--window-size=1980,1020")
 options.add_argument("--log-level=3")
-#options.add_argument("--headless")
+# options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 login_url = 'https://www.youtube.com/'
 
@@ -60,7 +59,7 @@ except:
 print('Passo 3: Capturar comentários do vídeo')
 try:
     wait = WebDriverWait(driver,10)
-    with open('comentários_do_video.csv','w') as arquivo:
+    with open('comentários_do_video.csv','w', encoding="utf-8") as arquivo:
         for item in range(3):
             wait.until(EC.visibility_of_element_located((By.TAG_NAME, "body"))).send_keys(Keys.END)
             time.sleep(3)
